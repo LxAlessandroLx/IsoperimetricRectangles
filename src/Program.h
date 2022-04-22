@@ -17,6 +17,7 @@ class Program
         sf::Event m_event;
 
         float m_a, m_P;
+        unsigned int m_currentColor;
 
         sf::RectangleShape m_rectangle;
 

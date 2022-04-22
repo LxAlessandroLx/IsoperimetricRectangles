@@ -3,11 +3,13 @@
 using sf::Event;
 using sf::VideoMode;
 using sf::Keyboard;
+using sf::Mouse;
+using sf::Color;
 using std::cout;
 using std::endl;
 
 Program::Program(float a, float P)
-    : m_a(a), m_P(P)
+    : m_a(a), m_P(P), m_currentColor(0)
 {
     initWindow();
 
@@ -64,6 +66,30 @@ void Program::updateEvents()
                         break;
                     default:
                         break;
+                }
+            case sf::Event::MouseButtonPressed:
+                if (m_rectangle.getGlobalBounds().contains(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window))) 
+                    && m_event.mouseButton.button == Mouse::Left)
+                {
+                    Color rectangleColor{0,0,0,255};
+
+                    m_currentColor = (m_currentColor+1) % 3;
+
+                    switch (m_currentColor)
+                    {
+                        case 0:
+                            m_rectangle.setFillColor({0, 255, 0, 150});
+                            m_rectangle.setOutlineColor({0, 255, 0, 255});
+                            break;
+                        case 1:
+                            m_rectangle.setFillColor({255, 0, 0, 150});
+                            m_rectangle.setOutlineColor({255, 0, 0, 255});
+                            break;
+                        case 2:
+                            m_rectangle.setFillColor({0, 0, 255, 150});
+                            m_rectangle.setOutlineColor({0, 0, 255, 255});
+                            break;
+                    }
                 }
             default: break;
         }
