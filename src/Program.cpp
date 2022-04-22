@@ -3,6 +3,8 @@
 using sf::Event;
 using sf::VideoMode;
 using sf::Keyboard;
+using std::cout;
+using std::endl;
 
 Program::Program(float a, float P)
     : m_a(a), m_P(P)
@@ -70,6 +72,10 @@ void Program::updateEvents()
 
 void Program::updateRectangle()
 {
+    system(CLEAR);
+    cout << "Base lenght : " << m_a << endl;
+    cout << "Perimeter lenght : " << m_P << endl;
+
     m_rectangle.setSize({ m_a, m_P/2 - m_a });
     m_rectangle.setOrigin(m_rectangle.getSize() / 2.f);
 }
