@@ -9,12 +9,14 @@ void help()
     "Usage: \n"
     " IsoperimetricRectangles [options]\n\n"
     "Options:\n"
-    " -a                        rectangle side lenght (default = 200)\n"
-    " -p, --perimeter           rectangle perimeter lenght (default = 600)\n"
+    " -a                        rectangle side lenght (default = 400)\n"
+    " -p, --perimeter           rectangle perimeter lenght (default = 1500)\n"
+    " -e, --epilepsy            enable epilepsy mode, 1 to activate or 0 to deactivate (default = 1)"
     " -h, --help                display this help\n";
 }
 
-void checkArgument(std::istringstream & stream, float & argument)
+template <class T>
+void checkArgument(std::istringstream & stream, T & argument)
 {
     if (!(stream >> argument) || !stream.eof())
     {
@@ -26,7 +28,8 @@ void checkArgument(std::istringstream & stream, float & argument)
 
 int main(int argc, char *argv[])
 {
-    float a = 200, P = 600;
+    bool epilepsy = false;
+    float a = 400, P = 1500;
 
     for (int i = 1; i < argc; i += 2)
     {
@@ -47,6 +50,10 @@ int main(int argc, char *argv[])
             {
                 checkArgument(stream, P);
             }
+            else if (!strcmp(argv[i], "-e") || !strcmp(argv[i], "--epilepsy"))
+            {
+                checkArgument(stream, epilepsy);
+            }
             else
             {
                 std::cerr << "ERROR: '" << argv[i] << "' invalid argument\n";
@@ -60,7 +67,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    Program program(a, P);
+    Program program(a, P, epilepsy);
 
     program.run();
 

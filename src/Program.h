@@ -18,13 +18,14 @@ class Program
 
         float m_a, m_P;
         unsigned int m_currentColor;
+        bool m_epilepsy;
 
         sf::RectangleShape m_rectangle;
 
         void initWindow();
 
     public:
-        Program(float a, float P);
+        Program(float a, float P, bool epilepsy);
 
         void updateEvents();
         void updateRectangle();

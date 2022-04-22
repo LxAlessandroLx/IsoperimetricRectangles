@@ -5,11 +5,12 @@ using sf::VideoMode;
 using sf::Keyboard;
 using sf::Mouse;
 using sf::Color;
+using sf::Uint8;
 using std::cout;
 using std::endl;
 
-Program::Program(float a, float P)
-    : m_a(a), m_P(P), m_currentColor(0)
+Program::Program(float a, float P, bool epilepsy)
+    : m_a(a), m_P(P), m_currentColor(0), m_epilepsy(epilepsy)
 {
     initWindow();
 
@@ -71,8 +72,6 @@ void Program::updateEvents()
                 if (m_rectangle.getGlobalBounds().contains(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window))) 
                     && m_event.mouseButton.button == Mouse::Left)
                 {
-                    Color rectangleColor{0,0,0,255};
-
                     m_currentColor = (m_currentColor+1) % 3;
 
                     switch (m_currentColor)
@@ -109,6 +108,12 @@ void Program::updateRectangle()
 void Program::update()
 {
     updateEvents();
+
+    if (m_epilepsy)
+    {
+        m_rectangle.setFillColor({ Uint8(rand() % 256),  Uint8(rand() % 256),  Uint8(rand() % 256), 255 });
+        m_rectangle.setOutlineColor({ Uint8(rand() % 256),  Uint8(rand() % 256),  Uint8(rand() % 256), 255 });
+    }
 }
 
 void Program::render()
