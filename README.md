@@ -43,3 +43,7 @@ Options:
  -p, --perimeter           rectangle perimeter lenght (default = 600)
  -h, --help                display this help
 </pre>
+
+## Screenshots
+[screenshot1](screenshots/screenshot1.png)
+[screenshot2](screenshots/screenshot2.png)
