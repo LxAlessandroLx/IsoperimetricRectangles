@@ -6,6 +6,7 @@ A stupid and unuseful program to draw isoperimetric rectangles
 - down arrow to increase perimeter lenght
 - right arrow to increase rectangle side lenght
 - left arrow to decrease rectangle side lenght
+- click the rectangle to change color
 
 ## Installation
 Install SFML framework
