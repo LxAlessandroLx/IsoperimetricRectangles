@@ -40,8 +40,9 @@ Usage:
  IsoperimetricRectangles [options]
 
 Options:
- -a                        rectangle side lenght (default = 200)
- -p, --perimeter           rectangle perimeter lenght (default = 600)
+ -a                        rectangle side lenght (default = 400)
+ -p, --perimeter           rectangle perimeter lenght (default = 1500)
+ -e, --epilepsy            enable epilepsy mode, 1 to activate or 0 to deactivate (default = 1)
  -h, --help                display this help
 </pre>
 
