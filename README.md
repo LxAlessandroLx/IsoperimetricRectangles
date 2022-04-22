@@ -42,7 +42,7 @@ Usage:
 Options:
  -a                        rectangle side lenght (default = 400)
  -p, --perimeter           rectangle perimeter lenght (default = 1500)
- -e, --epilepsy            enable epilepsy mode, 1 to activate or 0 to deactivate (default = 1)
+ -e, --epilepsy            enable epilepsy mode, 1 to activate or 0 to deactivate (default = 0)
  -h, --help                display this help
 </pre>
 
