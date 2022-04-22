@@ -17,7 +17,7 @@ $(TARGET): $(OBJ)
 	$(CXX) -c $(INCLUDE) -o $@ $^ $(CXXFLAGS)
 
 clean:
-	rm $(OBJ)
+	$(RM) $(OBJ)
 
 run:
-	./build/$(TARGET)
+	./$(BUILDDIR)/$(TARGET)
