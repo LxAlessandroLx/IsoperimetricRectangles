@@ -21,10 +21,6 @@ Move into the directory
 <pre>
 cd IsoperimetricRectangles
 </pre>
-Create the build folder
-<pre>
-mkdir build
-</pre>
 Build the project
 <pre>
 make
