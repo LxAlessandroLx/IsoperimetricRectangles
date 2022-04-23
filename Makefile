@@ -11,7 +11,7 @@ INCLUDE := -I src
 all: $(TARGET)
 
 $(TARGET): $(OBJ)
-	make -p build
+	mkdir -p build
 	$(CXX) -o $(BUILDDIR)/$(TARGET) $^ $(SFMLFLAGS)
 
 %.o: %.cpp
